@@ -8,7 +8,7 @@ How to install
 
 Extract files to find a directory named "app". Copy this "app" directory on the top of "app" directory of your CakePHP install. It should automatically copy and merge package files to their actual locations. If you are not sure about this action consider to move files manually to the following locations.
 
-Manual Copying of files
+Manually Copying files
 --------------------
 app/Controller/Component/CaptchaComponent.php (required)
 
