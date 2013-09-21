@@ -1,4 +1,4 @@
-Cakephp-Captcha-Component-2.0
+Cakephp Captcha Component 2.0
 =============================
 
 A CakePHP Cmponent to Display and (Model) Validate of Captcha.
