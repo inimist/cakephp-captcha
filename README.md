@@ -26,7 +26,7 @@ What's New
 * Default and Random themes
 * Checks for missing font file
 * Inclusion of jQuery library from Google
-* View a [link]http://ww2.inimist.com/cakephp-2.4.1/signups/add[/link]
+* View a Demo: http://ww2.inimist.com/cakephp-2.4.1/signups/add
 
 What's Next
 --------------------
