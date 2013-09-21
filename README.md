@@ -4,10 +4,12 @@ Cakephp-Captcha-Component-2.0
 A CakePHP Cmponent to Display and (Model) Validate of Captcha.
 
 ++How to install++
+--------------------
 
-Extract files to have a directory named app. copy it on the top of app directory of your cakephp install. It should automatically copy and merge files to their actuall locations. You can also move files manually to the following locations. That is:
+Extract files to find a directory named "app". Copy this "app" directory on the top of "app" directory of your CakePHP install. It should automatically copy and merge package files to their actual locations. If you are not sure about this action consider to move files manually to the following locations.
 
 ++ Manual Copying of files ++
+--------------------
 
 --------------------
 app/Controller/Component/CaptchaComponent.php (required)
@@ -23,11 +25,13 @@ app/webroot/monofont.ttf (required)
 --------------------
 
 ++What's New++
+--------------------
 
 * Default and Random themes
 * Checks for missing font file
 * Inclusion of jQuery library from Google
 
 ++ What's Next ++
+--------------------
 
 Making a CakePHP Plugin out of it. Contact me or throw me a message at http://www.devarticles.in/contact or to arvind dot mailto at gmail dot com
