@@ -9,3 +9,6 @@ Extract files to have a directory named app. copy it on the top of app directory
 
 app/Controller/Component/CaptchaComponent.php
 app/Controller/SignupsController.php
+app/Model/Signup.php
+app/View/Signups/add.ctp
+app/webroot/monofont.ttf
