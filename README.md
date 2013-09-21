@@ -12,3 +12,5 @@ app/Controller/SignupsController.php
 app/Model/Signup.php
 app/View/Signups/add.ctp
 app/webroot/monofont.ttf
+
+==ROOT==
