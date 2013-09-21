@@ -10,15 +10,16 @@ Extract files to have a directory named app. copy it on the top of app directory
 ++ Manual Copying of files ++
 
 --------------------
-app/Controller/Component/CaptchaComponent.php
+app/Controller/Component/CaptchaComponent.php (required)
 
-app/Controller/SignupsController.php
+app/Controller/SignupsController.php (example only file)
 
-app/Model/Signup.php
+app/Model/Signup.php (example only file)
 
-app/View/Signups/add.ctp
+app/View/Signups/add.ctp (example only file)
 
-app/webroot/monofont.ttf
+app/webroot/monofont.ttf (required)
+
 --------------------
 
 ++What's New++
