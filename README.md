@@ -1,7 +1,12 @@
 Cakephp Captcha Component 2.0
 =============================
 
-A CakePHP Cmponent to Display and (Model) Validate of Captcha.
+A CakePHP Component to Display and (Model) Validate of Captcha.
+
+Requirements
+--------------------
+This component requires both the GD library and the FreeType library enabled. Please check [http://www.php.net/manual/en/function.imagettftext.php] for more details.
+
 
 How to install
 --------------------
