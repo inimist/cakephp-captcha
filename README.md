@@ -1,11 +1,11 @@
 Cakephp Captcha Component 2.0
 =============================
 
-A CakePHP Component to Display and (Model) Validate of Captcha.
+A CakePHP Component to Display and Model Validation of Captcha.
 
-** Requirements **
+*Requirements*
 --------------------
-This component requires both the GD library and the FreeType library enabled. Please check [http://www.php.net/manual/en/function.imagettftext.php] for more details.
+This component requires the GD library and the FreeType (optional but recommended) library enabled. Please check [http://www.php.net/manual/en/function.imagettftext.php] for more details.
 
 
 How to install
@@ -21,16 +21,39 @@ app/Controller/SignupsController.php (example only file)
 
 app/Model/Signup.php (example only file)
 
+app/View/Helper/CaptchaHelper.php (required)
+
 app/View/Signups/add.ctp (example only file)
 
 app/webroot/monofont.ttf (required)
 
+<dt>Loading in the controller definitions</dt>
+
+    var $components = array('Captcha'=> 
+      array('captchaType'=>'math', 
+      'jquerylib'=>true, 
+      'modelName'=>'Signup', 
+      'fieldName'=>'captcha')
+      ); //load it
+
+<dt>Loading on the fly (see "add" function in the attached controller)</dt>
+
+    $this->Captcha = $this->Components->load('Captcha', 
+      array('captchaType'=>'math', 
+      'jquerylib'=>true, 
+      'modelName'=>'Signup', 
+      'fieldName'=>'captcha')
+      ); //load it
+
 What's New
 --------------------
 
-* Default and Random themes
+* Supports Image and Simple Math captcha
+* Works without GD Truetype font support
+* Default and Random themes for Image Captcha
 * Checks for missing font file
 * Inclusion of jQuery library from Google
+* Option to specify Model and Field names in form
 * Demo: http://ww2.inimist.com/cakephp-2.4.1/signups/add
 
 What's Next

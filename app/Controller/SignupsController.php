@@ -1,17 +1,17 @@
 <?php
 /**
 	* (Sample) Controller for Showing the use of Captcha*
-	* @author     Arvind K. Thakur
+	* @author     Arvind Kumar (arvind.mailto@gmail.com)
 	* @link       http://www.devarticles.in/
-	* @copyright  Copyright © 2008 www.devarticles.in
-	* @version Tested ok in Cakephp 2.x
+	* @copyright  Copyright © 2013 http://www.devarticles.in/
+	* @version Tested OK in Cakephp 2.4.1
 	*/
 class SignupsController extends AppController {
 
 	var $name = 'Signups';
 	var $uses = array('Signup');
-	var $helpers = array('Html', 'Form');
-	var $components = array();//'Captcha'
+	var $helpers = array('Html', 'Form', 'Captcha');
+	//var $components = array('Captcha'=>array('jquerylib'=>true));//'Captcha'
 
 	function captcha()	{
 		$this->autoRender = false;
@@ -27,11 +27,8 @@ class SignupsController extends AppController {
 	}
 
 	function add()	{
-    $this->Captcha = $this->Components->load('Captcha'); //load it
+    $this->Captcha = $this->Components->load('Captcha', array('captchaType'=>'image', 'jquerylib'=>true, 'modelName'=>'Signup', 'fieldName'=>'captcha')); //load it
 
-    if(!file_exists($this->Captcha->settings['font']))  {
-      die("The font does not exist at the location: " . $this->Captcha->settings['font']);
-    }
 		if(!empty($this->request->data))	{
 			/*if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()
 				$this->Captcha = $this->Components->load('Captcha'); //load it
