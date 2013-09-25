@@ -3,7 +3,7 @@ Cakephp Captcha Component 2.0
 
 A CakePHP Component to Display and Model Validation of Captcha.
 
-*Requirements*
+Requirements
 --------------------
 This component requires the GD library and the FreeType (optional but recommended) library enabled. Please check [http://www.php.net/manual/en/function.imagettftext.php] for more details.
 
@@ -27,7 +27,7 @@ app/View/Signups/add.ctp (example only file)
 
 app/webroot/monofont.ttf (required)
 
-<dt>Loading in the controller definitions</dt>
+***Loading in the controller definitions**
 
     var $components = array('Captcha'=> 
       array('captchaType'=>'math', 
@@ -36,7 +36,7 @@ app/webroot/monofont.ttf (required)
       'fieldName'=>'captcha')
       ); //load it
 
-<dt>Loading on the fly (see "add" function in the attached controller)</dt>
+***Loading on the fly** (see "add" function in the attached controller)
 
     $this->Captcha = $this->Components->load('Captcha', 
       array('captchaType'=>'math', 
