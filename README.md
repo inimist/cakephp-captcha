@@ -27,7 +27,7 @@ app/View/Signups/add.ctp (example only file)
 
 app/webroot/monofont.ttf (required)
 
-***Loading in the controller definitions**
+**Loading in the controller definitions*
 
     var $components = array('Captcha'=> 
       array('captchaType'=>'math', 
@@ -36,7 +36,7 @@ app/webroot/monofont.ttf (required)
       'fieldName'=>'captcha')
       ); //load it
 
-***Loading on the fly** (see "add" function in the attached controller)
+**Loading on the fly** (see "add" function in the attached controller)
 
     $this->Captcha = $this->Components->load('Captcha', 
       array('captchaType'=>'math', 
