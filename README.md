@@ -27,7 +27,7 @@ app/View/Signups/add.ctp (example only file)
 
 app/webroot/monofont.ttf (required)
 
-**Loading in the controller definitions*
+**Loading in the controller definitions**
 
     var $components = array('Captcha'=> 
       array('captchaType'=>'math', 
