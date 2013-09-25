@@ -29,7 +29,7 @@ app/webroot/monofont.ttf (required)
 
 After files have been copied include CaptchaHelper in your controller. Example:
 
-    var $helpers = array('Html', 'Form', '**Captcha**');
+    var $helpers = array('Html', 'Form', 'Captcha');
 
 Next load CaptchaComponent. There are two ways to do it. eg.,
 
