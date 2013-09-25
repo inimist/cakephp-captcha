@@ -36,7 +36,7 @@ Next load CaptchaComponent. There are two ways to do it. eg.,
 **Loading in the controller definitions**
 
     var $components = array('Captcha'=> 
-      array('captchaType'=>'math', 
+      array('captchaType'=>'image', 
       'jquerylib'=>true, 
       'modelName'=>'Signup', 
       'fieldName'=>'captcha')
@@ -45,7 +45,7 @@ Next load CaptchaComponent. There are two ways to do it. eg.,
 **Loading on the fly** (see "add" function in the attached controller)
 
     $this->Captcha = $this->Components->load('Captcha', 
-      array('captchaType'=>'math', 
+      array('captchaType'=>'image', 
       'jquerylib'=>true, 
       'modelName'=>'Signup', 
       'fieldName'=>'captcha')
