@@ -27,7 +27,7 @@ class SignupsController extends AppController {
 	}
 
 	function add()	{
-    $this->Captcha = $this->Components->load('Captcha', array('captchaType'=>'image', 'jquerylib'=>true, 'modelName'=>'Signup', 'fieldName'=>'captcha')); //load it
+    $this->Captcha = $this->Components->load('Captcha', array('captchaType'=>'math', 'jquerylib'=>true, 'modelName'=>'Signup', 'fieldName'=>'captcha')); //load it
 
 		if(!empty($this->request->data))	{
 			/*if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()
