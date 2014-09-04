@@ -81,14 +81,14 @@ Next load CaptchaComponent. There are two ways to do it. eg.,
 
 What's New
 --------------------
-
+* Tested upto CakePHP 2.5.4
 * Supports Image and Simple Math captcha
 * Works without GD Truetype font support
 * Default and Random themes for Image Captcha
 * Checks for missing font file
 * Inclusion of jQuery library from Google
 * Option to specify Model and Field names in form
-* Demo: http://ww2.inimist.com/cakephp-2.4.1/signups/add
+* Demo: http://ww2.inimist.com/cakephp-captcha/signups/add
 
 What's Next
 --------------------
