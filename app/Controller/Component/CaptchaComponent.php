@@ -1,5 +1,5 @@
   <?php
-  /**
+/**
   * Component for Generating Captcha in CakePHP 2.x
   * PHP versions 5.2.8
   * @author     Arvind K. (arvind.mailto@gmail.com)
