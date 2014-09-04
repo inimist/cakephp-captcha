@@ -3,8 +3,8 @@
 	* (Sample) Controller for Showing the use of Captcha*
 	* @author     Arvind Kumar (arvind.mailto@gmail.com)
 	* @link       http://www.devarticles.in/
-	* @copyright  Copyright © 2013 http://www.devarticles.in/
-	* @version Tested OK in Cakephp 2.4.1
+	* @copyright  Copyright © 2014 http://www.devarticles.in/
+	* @version 2.5 Tested OK in Cakephp 2.5.4
 	*/
 class SignupsController extends AppController {
 
@@ -27,7 +27,7 @@ class SignupsController extends AppController {
 	}
 
 	function add()	{
-    $this->Captcha = $this->Components->load('Captcha', array('captchaType'=>'math', 'jquerylib'=>true, 'modelName'=>'Signup', 'fieldName'=>'captcha')); //load it
+    $this->Captcha = $this->Components->load('Captcha', array('jquerylib'=>true, 'modelName'=>'Signup', 'fieldName'=>'captcha')); //load it
 
 		if(!empty($this->request->data))	{
 			/*if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()

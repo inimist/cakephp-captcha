@@ -4,7 +4,7 @@
 	* @author     Arvind Kumar
 	* @link       http://www.devarticles.in/
 	* @copyright  Copyright © 2013 http://www.devarticles.in/
-  * @version 2.0 - Tested OK in Cakephp 2.4.1
+	* @version 2.5 - Tested OK in Cakephp 2.5.4
 	*/
 class CaptchaHelper extends AppHelper {
   public $helpers = array('Html', 'Form');
