@@ -159,4 +159,4 @@ Download
 
 The version here at Github is also a stable one but without multiple Captcha Support.
 
-\**(My apologies but this work is being duplicated and published without my knowledge and credit so i am not pushing it here right now.)*
+\* *(My apologies but this work is being duplicated and published without my knowledge and credit so i am not pushing it here right now.)*
