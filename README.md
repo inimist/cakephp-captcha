@@ -39,7 +39,7 @@ Add the similar logic to the function which is the "action" of your form, in you
 
     function add()	{
         if(!empty($this->request->data))	{
-            <span style="background:yellow">$this->Signup->setCaptcha('captcha', $this->Captcha->getCode('Signup.captcha'));</span>
+            **$this->Signup->setCaptcha('captcha', $this->Captcha->getCode('Signup.captcha'));**
             $this->Signup->set($this->request->data);
             if($this->Signup->validates())	{ //as usual data save call
                 // validation passed, do save or something
