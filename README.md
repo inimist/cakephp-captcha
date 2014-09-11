@@ -74,8 +74,8 @@ Add form code in the view file, in the form where you want the captcha image to 
 
 And importanly place the following javascript script code in somewhere in your page so it is called properly and execute.
 
-    &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">&lt;/script>
-    &lt;script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
     jQuery('.creload').on('click', function() {
         var mySrc = $(this).prev().attr('src');
         var glue = '?';
@@ -85,48 +85,44 @@ And importanly place the following javascript script code in somewhere in your p
         $(this).prev().attr('src', mySrc + glue + new Date().getTime());
         return false;
     });
-    &lt;/script>
+    </script>
 
 That should be it!
 
-**Few more examples
+##More examples
 
-Example of custom settings:
+Custom settings:
 
-<pre class=prettyprint>
-echo $this->Form->create("Signups");
-$custom1['width']=150;
-$custom1['height']=50;
-$custom1['theme']='default';
-$this->Captcha->render($custom1);
+    echo $this->Form->create("Signups");
+    $custom1['width']=150;
+    $custom1['height']=50;
+    $custom1['theme']='default';
+    $this->Captcha->render($custom1);
 
+Multiple captchas:
 
-Example of multiple captchas:
+    //form 1
+    echo $this->Form->create("Signups");
+    $custom1['width']=150;
+    $custom1['height']=50;
+    $this->Captcha->render($custom1);
 
-<pre class=prettyprint>
-//form 1
-echo $this->Form->create("Signups");
-$custom1['width']=150;
-$custom1['height']=50;
-$this->Captcha->render($custom1);
-
-//form 2, A math captcha, anywhere on the page
-echo $this->Form->create("Users");
-$custom2['type']='math';
-$this->Captcha->render($custom2);
+    //form 2, A math captcha, anywhere on the page
+    echo $this->Form->create("Users");
+    $custom2['type']='math';
+    $this->Captcha->render($custom2);
 
 
-**Options which can be set in your view file with form, are:**
+**Options that can be set in your view file having form are:**
 
 * *model*: model name.
 * *field*: field name.
-* *type*: image or math. If set to 'math' all settings given below are ignored
+* *type*: image or math. If set to 'math' all following settings will be obsolete
 * *width*: width of image captcha
 * *height*: height of image captcha
 * *theme*: theme/difficulty image captcha
 * *length*: number of characters in image captcha
 * *angle*: angle of rotation for characters in image captcha
-
 
 **There are a few other options which, at the moment, can be set in the component file directly**
 
