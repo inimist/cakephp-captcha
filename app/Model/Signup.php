@@ -8,27 +8,12 @@
 	*/
 class Signup extends AppModel {
 	
-	var $useTable = false; //i dont have a table right now, just testing captcha!
-	var $name='Signup';
-	var $captcha = ''; //intializing captcha var
+    var $useTable = false; //i dont have a table right now, just testing captcha
 
-	var $validate = array(
-			'captcha'=>array(
-				'rule' => array('matchCaptcha'),
-				'message'=>'Failed validating human check.'
-			),
-		);
-
-	function matchCaptcha($inputValue)	{
-		return $inputValue['captcha']==$this->getCaptcha(); //return true or false after comparing submitted value with set value of captcha
-	}
-
-	function setCaptcha($value)	{
-		$this->captcha = $value; //setting captcha value
-	}
-
-	function getCaptcha()	{
-		return $this->captcha; //getting captcha value
-	}
-
+    public $actsAs = array(
+        'Captcha' => array(
+            'field' => array('security_code'),
+            'error' => 'Incorrect captcha code value'
+        )
+    );
 }

@@ -11,39 +11,92 @@ class SignupsController extends AppController {
 	var $name = 'Signups';
 	var $uses = array('Signup');
 	var $helpers = array('Html', 'Form', 'Captcha');
-	//var $components = array('Captcha'=>array('jquerylib'=>true));//'Captcha'
+	var $components = array('Captcha'=>array('field'=>'security_code'));//'Captcha'
 
-	function captcha()	{
-		$this->autoRender = false;
-		$this->layout='ajax';
-		if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()
-			$this->Captcha = $this->Components->load('Captcha', array(
-				'width' => 150,
-				'height' => 50,
-				'theme' => 'random', //possible values : default, random ; No value means 'default'
-			)); //load it
-			}
-		$this->Captcha->create();
-	}
+    function captcha()	{
+        $this->autoRender = false;
+        $this->layout='ajax';
+        if(!isset($this->Captcha))	{ //if you didn't load in the header
+            $this->Captcha = $this->Components->load('Captcha'); //load it
+        }
+        $this->Captcha->create();
+    }
 
-	function add()	{
-    $this->Captcha = $this->Components->load('Captcha', array('jquerylib'=>true, 'modelName'=>'Signup', 'fieldName'=>'captcha')); //load it
+    function add()	{
+        //$this->Captcha = $this->Components->load('Captcha'); //load it
+        if(!empty($this->request->data))	{
+            /*if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()
+                $this->Captcha = $this->Components->load('Captcha'); //load it
+            }*/
+            debug($this->Captcha->getCode('Signup.security_code'));
+            $this->Signup->setCaptcha('security_code', $this->Captcha->getCode('Signup.security_code')); //getting from component and passing to model to make proper validation check
+            $this->Signup->set($this->request->data);
+            if($this->Signup->validates())	{ //as usual data save call
+                //$this->Signup->save($this->request->data);//save or something
+                // validation passed, do something
+                $this->Session->setFlash('Data Validation Success', 'default', array('class' => 'notice success'));
+            }	else	{ //or
+                $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
+                //pr($this->Signup->validationErrors);
+                //something do something else
+            }
+        }
+    }
+    function demo($ctype='multiple')	{
 
-		if(!empty($this->request->data))	{
-			/*if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()
-				$this->Captcha = $this->Components->load('Captcha'); //load it
-			}*/
-			$this->Signup->setCaptcha($this->Captcha->getVerCode()); //getting from component and passing to model to make proper validation check
-			$this->Signup->set($this->request->data);
-			if($this->Signup->validates())	{ //as usual data save call
-				//$this->Signup->save($this->request->data);//save or something
-				// validation passed, do something
-				$this->Session->setFlash('Data Validation Success', 'default', array('class' => 'notice success'));
-			}	else	{ //or
-				$this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
-				//pr($this->Signup->validationErrors);
-				//something do something else
-			}
-		}
-	}
+        $this->set('ctype', $ctype);
+
+        //$this->Captcha = $this->Components->load('Captcha'); //load it
+
+        if(!empty($this->request->data))	{
+
+            /*if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()
+                $this->Captcha = $this->Components->load('Captcha'); //load it
+            }*/
+            if(isset($this->request->data['Signup']))   {
+                $this->Signup->setCaptcha('security_code', $this->Captcha->getCode('Signup.security_code')); //getting from component and passing to model to make proper validation check
+                $this->Signup->set($this->request->data);
+                if($this->Signup->validates())	{ //as usual data save call
+                    //$this->Signup->save($this->request->data);//save or something
+                    // validation passed, do something
+                    $this->Session->setFlash('Data Validation Success', 'default', array('class' => 'notice success'));
+                }	else	{ //or
+                    $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
+                    //pr($this->Signup->validationErrors);
+                    //something do something else
+                }
+            }
+
+            if(isset($this->request->data['User']))   {
+                $this->loadModel('User');
+                $this->User->setCaptcha('ssecurity', $this->Captcha->getCode('User.ssecurity')); //getting from component and passing to model to make proper validation check
+                $this->User->set($this->request->data);
+                if($this->User->validates())	{ //as usual data save call
+                    //$this->Signup->save($this->request->data);//save or something
+                    // validation passed, do something
+                    $this->Session->setFlash('Data Validation Success','default', array('class' => 'notice success'));
+                }	else	{ //or
+                    $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
+                    //pr($this->Signup->validationErrors);
+                    //something do something else
+                }
+            }
+
+            if(isset($this->request->data['Contact']))   {
+
+                $this->loadModel('Contact');
+                $this->Contact->setCaptcha('math_question', $this->Captcha->getCode('Contact.math_question')); //getting from component and passing to model to make proper validation check
+                $this->Contact->set($this->request->data);
+                if($this->Contact->validates())	{ //as usual data save call
+                    //$this->Signup->save($this->request->data);//save or something
+                    // validation passed, do something
+                    $this->Session->setFlash('Data Validation Success','default', array('class' => 'notice success'));
+                }	else	{ //or
+                    $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
+                    //pr($this->Signup->validationErrors);
+                    //something do something else
+                }
+            }
+        }
+    }
 }

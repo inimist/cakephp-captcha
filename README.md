@@ -3,94 +3,146 @@ Cakephp Captcha Component 2.5
 
 A CakePHP Component to Display and Model Validation of Captcha.
 
-Requirements
+Features
 --------------------
-This component requires the GD library and the FreeType (optional but recommended) library enabled. Please check [http://www.php.net/manual/en/function.imagettftext.php] for more details.
+* Multiple Captcha Support.
+	- It simply supports multiple captchas on a page. In different forms or in a single form.
+* Model Validation attahced as Behavior
+* Image and/or Simple Math Captchas
+* Configurable Model Name, Field Name, Captcha Height, Width, Number of Characters and Font Face, Size, Angle of rotation
+* Works without GD Truetype font support
+* Random or Fixed Captcha Themes for Image Captchaa
+* Random Font face
 
-
-How to install
+Installation
 --------------------
 
-Extract files to find a directory named "app". Copy this "app" directory on the top of "app" directory of your CakePHP install. It should automatically copy and merge package files to their actual locations. If you are not sure about this action consider to move files manually to the following locations.
+Place all files bundled in this package in corresponding folders. Then follow instructions given below.
 
-Manually Copying files
---------------------
-app/Controller/Component/CaptchaComponent.php (required)
+**In Controller**
 
-app/Controller/SignupsController.php (example only file)
+Add in the top definitions of your controller.
 
-app/Model/Signup.php (example only file)
+    var $components = array('Captcha'=>array('Model'=>'Signup', 'field'=>'captcha'));//'Captcha'
 
-app/View/Helper/CaptchaHelper.php (required)
+Note: "*captcha*" is the field name for which we are binding this captcha here in examples. Replace with appropriate name.
 
-app/View/Signups/add.ctp (example only file)
+Add this function in your controller.
 
-app/webroot/monofont.ttf (required)
+    function captcha()	{
+        $this->autoRender = false;
+        $this->layout='ajax';
+        $this->Captcha->create();
+    }
 
-After files have been copied include CaptchaHelper in your controller. Example:
+Add the similar logic to the function which is the "action" of your form, in your controller. The highlighted line is the one which is related to the captcha component.
 
-    var $helpers = array('Html', 'Form', 'Captcha');
+    function add()	{
+        if(!empty($this->request->data))	{
+            <span style="background:yellow">$this->Signup->setCaptcha('captcha', $this->Captcha->getCode('Signup.captcha'));</span>
+            $this->Signup->set($this->request->data);
+            if($this->Signup->validates())	{ //as usual data save call
+                // validation passed, do save or something
+            }	else	{ //or
+                $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
+                //validation not passed, do something else
+            }
+        }
+    }
 
-Next load CaptchaComponent. There are two ways to do it. eg.,
 
-**Loading in the controller definitions**
+##In Model
 
-    var $components = array('Captcha'=> 
-      array('captchaType'=>'image', 
-      'jquerylib'=>true, 
-      'modelName'=>'Signup', 
-      'fieldName'=>'captcha')
-      ); //load it
+Add CaptchaBehaviour in the Model definitions, as following:
 
-**Loading on the fly** (see "add" function in the attached controller)
+    public $actsAs = array(
+        'Captcha' => array(
+            'field' => array('captcha'),
+            'error' => 'Incorrect captcha code value'
+        )
+    );
 
-    $this->Captcha = $this->Components->load('Captcha', 
-      array('captchaType'=>'image', 
-      'jquerylib'=>true, 
-      'modelName'=>'Signup', 
-      'fieldName'=>'captcha')
-      ); //load it
+##In View
 
-**View file (form)** (see "signups/add.ctp" attached view file)
+Add form code in the view file, in the form where you want the captcha image to appear:
 
-    echo $this->Session->flash();
-    echo $this->Form->create("Signups"); 
-    $this->Captcha->render($captchaSettings);
+    echo $this->Form->create("Signups");
+    $this->Captcha->render();
     echo $this->Form->submit(__(' Submit ',true));
     echo $this->Form->end();
 
-**Controller action (add())** (see "add" function in the attached controller)
 
-    function add()	{
-      $this->Captcha = $this->Components->load('Captcha', array('captchaType'=>'math', 'jquerylib'=>true, 'modelName'=>'Signup', 'fieldName'=>'captcha')); //load it
+And importanly place the following javascript script code in somewhere in your page so it is called properly and execute.
 
-      if(!empty($this->request->data))	{
-        $this->Signup->setCaptcha($this->Captcha->getVerCode()); //getting from component and passing to model to do validation check
-        $this->Signup->set($this->request->data);
-        if($this->Signup->validates())	{ //as usual data save call
-          //$this->Signup->save($this->request->data);//save or do something
-          // validation passed, do something
-          $this->Session->setFlash('Data Validation Success', 'default', array('class' => 'notice success'));
-        }	else	{ //or
-          $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
-          //pr($this->Signup->validationErrors);
-          //something do something else
+    &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">&lt;/script>
+    &lt;script>
+    jQuery('.creload').on('click', function() {
+        var mySrc = $(this).prev().attr('src');
+        var glue = '?';
+        if(mySrc.indexOf('?')!=-1)  {
+            glue = '&';
         }
-      }
-    }
+        $(this).prev().attr('src', mySrc + glue + new Date().getTime());
+        return false;
+    });
+    &lt;/script>
+
+That should be it!
+
+**Few more examples
+
+Example of custom settings:
+
+<pre class=prettyprint>
+echo $this->Form->create("Signups");
+$custom1['width']=150;
+$custom1['height']=50;
+$custom1['theme']='default';
+$this->Captcha->render($custom1);
+
+
+Example of multiple captchas:
+
+<pre class=prettyprint>
+//form 1
+echo $this->Form->create("Signups");
+$custom1['width']=150;
+$custom1['height']=50;
+$this->Captcha->render($custom1);
+
+//form 2, A math captcha, anywhere on the page
+echo $this->Form->create("Users");
+$custom2['type']='math';
+$this->Captcha->render($custom2);
+
+
+**Options which can be set in your view file with form, are:**
+
+* *model*: model name.
+* *field*: field name.
+* *type*: image or math. If set to 'math' all settings given below are ignored
+* *width*: width of image captcha
+* *height*: height of image captcha
+* *theme*: theme/difficulty image captcha
+* *length*: number of characters in image captcha
+* *angle*: angle of rotation for characters in image captcha
+
+
+**There are a few other options which, at the moment, can be set in the component file directly**
 
 What's New
 --------------------
 * Tested upto CakePHP 2.5.4
-* Supports Image and Simple Math captcha
-* Works without GD Truetype font support
+* Multiple Image and Simple Math captcha
 * Default and Random themes for Image Captcha
-* Checks for missing font file
-* Inclusion of jQuery library from Google
-* Option to specify Model and Field names in form
-* Demo: http://ww2.inimist.com/cakephp-captcha/signups/add
+* Multiple font files placed in Lib
+* Fully controlled from View file through Helper
 
-What's Next
---------------------
+*Demo: [http://captcha.inimist.com]*
 
-Making a CakePHP Plugin out of it. Contact me or throw me a message at http://www.devarticles.in/contact or to arvind dot mailto at gmail dot com
+**Download**
+[Send me a message](http://devarticles.in/contact/) to receive latest captcha files*.
+
+The version here at Github is also a stable one but without multiple Captcha Support.
+
+*(My apologies but this work is being duplicated and published without my knowledge and credit.)*
