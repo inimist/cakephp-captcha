@@ -155,8 +155,8 @@ http://captcha.inimist.com
 
 Download
 --------------------
-[Send me a message](http://devarticles.in/contact/) to receive latest captcha files*.
+[Send me a message](http://devarticles.in/contact/) to receive **Latest captcha files (Beta)**\*.
 
-The version here at Github is also a stable one but without multiple Captcha Support.
+The version here at Github is also a Stable one but **Without multiple Captcha Support**.
 
 \* *(My apologies but this work is being duplicated and published without my knowledge and credit so i am not pushing the latest work here right now.)*
