@@ -35,11 +35,11 @@ Add this function in your controller.
         $this->Captcha->create();
     }
 
-Add the similar logic to the function which is the "action" of your form, in your controller. The highlighted line is the one which is related to the captcha component.
+Add the similar logic to the function which is the "action" of your form, in your controller. The highlighted line (line 3 here) is the one which is related to the captcha component.
 
     function add()	{
         if(!empty($this->request->data))	{
-            **$this->Signup->setCaptcha('captcha', $this->Captcha->getCode('Signup.captcha'));**
+            $this->Signup->setCaptcha('captcha', $this->Captcha->getCode('Signup.captcha'));
             $this->Signup->set($this->request->data);
             if($this->Signup->validates())	{ //as usual data save call
                 // validation passed, do save or something
