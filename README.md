@@ -19,7 +19,7 @@ Installation
 
 Place all files bundled in this package in corresponding folders. Then follow instructions given below.
 
-**In Controller**
+###In Controller
 
 Add in the top definitions of your controller.
 
@@ -51,7 +51,7 @@ Add the similar logic to the function which is the "action" of your form, in you
     }
 
 
-##In Model
+###In Model
 
 Add CaptchaBehaviour in the Model definitions, as following:
 
@@ -62,7 +62,7 @@ Add CaptchaBehaviour in the Model definitions, as following:
         )
     );
 
-##In View
+###In View
 
 Add form code in the view file, in the form where you want the captcha image to appear:
 
@@ -91,7 +91,7 @@ That should be it!
 
 ##More examples
 
-Custom settings:
+###Custom settings:
 
     echo $this->Form->create("Signups");
     $custom1['width']=150;
@@ -99,7 +99,7 @@ Custom settings:
     $custom1['theme']='default';
     $this->Captcha->render($custom1);
 
-Multiple captchas:
+###Multiple captchas:
 
     //form 1
     echo $this->Form->create("Signups");
@@ -134,11 +134,14 @@ What's New
 * Multiple font files placed in Lib
 * Fully controlled from View file through Helper
 
-*Demo: [http://captcha.inimist.com]*
+Demo
+--------------------
+http://captcha.inimist.com
 
-**Download**
+Download
+--------------------
 [Send me a message](http://devarticles.in/contact/) to receive latest captcha files*.
 
 The version here at Github is also a stable one but without multiple Captcha Support.
 
-*(My apologies but this work is being duplicated and published without my knowledge and credit.)*
+* - (My apologies but this work is being duplicated and published without my knowledge and credit.)*
