@@ -141,8 +141,6 @@ Additional settings that can be set in Component file.
 * *clabel*: Label for Image Captcha Value input field
 * *mlabel*: Label for Math Captcha Value input field
 
-**There are a few other options which, at the moment, can be set in the component file directly**
-
 What's New
 --------------------
 * Tested upto CakePHP 2.5.4
