@@ -19,6 +19,16 @@ Installation
 
 Place all files bundled in this package in corresponding folders. Then follow instructions given below.
 
+Configuration
+--------------------
+
+Open the Controller/Component/CaptchaComponent.php file and make necessary changes in the $settings variable defined near line 125.
+
+Implementation
+--------------------
+
+Follow instructions given below to place in Controller, Model and View files.
+
 ###In Controller
 
 Add in the top definitions of your controller.
@@ -113,7 +123,7 @@ That should be it!
     $this->Captcha->render($custom2);
 
 
-**Options that can be set in your view file having form are:**
+**Settings that can be set in your view file:**
 
 * *model*: model name.
 * *field*: field name.
@@ -123,6 +133,13 @@ That should be it!
 * *theme*: theme/difficulty image captcha
 * *length*: number of characters in image captcha
 * *angle*: angle of rotation for characters in image captcha
+
+Additional settings that can be set in Component file.
+
+* *fontAdjustment*: Responsible for the font size relational to Captcha Image Size
+* *reload_txt*: The phrase which appears as a Captcha Reload link
+* *clabel*: Label for Image Captcha Value input field
+* *mlabel*: Label for Math Captcha Value input field
 
 **There are a few other options which, at the moment, can be set in the component file directly**
 
