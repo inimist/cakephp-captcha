@@ -9,7 +9,8 @@ Features
 	- It simply supports multiple captchas on a page. In different forms or in a single form.
 * Model Validation attahced as Behavior
 * Image and/or Simple Math Captchas
-* Configurable Model Name, Field Name, Captcha Height, Width, Number of Characters and Font Face, Size, Angle of rotation
+* Configurable Model Name, Field Name, Captcha Height, Width, Number of Characters and Font Face, Size, Angle 
+of rotation
 * Works without GD Truetype font support
 * Random or Fixed Captcha Themes for Image Captchaa
 * Random Font face
@@ -22,7 +23,8 @@ Place all files bundled in this package in corresponding folders. Then follow in
 Configuration
 --------------------
 
-Open the Controller/Component/CaptchaComponent.php file and make necessary changes in the $settings variable defined near line 125.
+Open the Controller/Component/CaptchaComponent.php file and make necessary changes in the $settings variable 
+defined near line 125.
 
 Implementation
 --------------------
@@ -35,7 +37,8 @@ Add in the top definitions of your controller.
 
     var $components = array('Captcha'=>array('Model'=>'Signup', 'field'=>'captcha'));//'Captcha'
 
-Note: "*captcha*" is the field name for which we are binding this captcha here in examples. Replace with appropriate name.
+Note: "*captcha*" is the field name for which we are binding this captcha here in examples. Replace with 
+appropriate name.
 
 Add this function in your controller.
 
@@ -45,7 +48,8 @@ Add this function in your controller.
         $this->Captcha->create();
     }
 
-Add the similar logic to the function which is the "action" of your form, in your controller. The highlighted line (line 3 here) is the one which is related to the captcha component.
+Add the similar logic to the function which is the "action" of your form, in your controller. The highlighted 
+line (line 3 here) is the one which is related to the captcha component.
 
     function add()	{
         if(!empty($this->request->data))	{
@@ -54,7 +58,8 @@ Add the similar logic to the function which is the "action" of your form, in you
             if($this->Signup->validates())	{ //as usual data save call
                 // validation passed, do save or something
             }	else	{ //or
-                $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 'cake-error'));
+                $this->Session->setFlash('Data Validation Failure', 'default', array('class' => 
+		'cake-error'));
                 //validation not passed, do something else
             }
         }
@@ -82,7 +87,8 @@ Add form code in the view file, in the form where you want the captcha image to 
     echo $this->Form->end();
 
 
-And importanly place the following javascript script code in somewhere in your page so it is called properly and execute.
+And importanly place the following javascript script code in somewhere in your page so it is called properly 
+and execute.
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script>
@@ -155,8 +161,5 @@ http://captcha.inimist.com
 
 Download
 --------------------
-[Send me a message](http://devarticles.in/contact/) to receive **Latest captcha files (Beta)**\*.
-
-The version here at Github is also a Stable one but **Without multiple Captcha Support**.
-
-\* *(My apologies but this work is being duplicated and published without my knowledge and credit so i am not pushing the latest work here right now.)*
+For some reason i haven't uploaded the CaptchaBehaviour file here. [Send me a 
+message](http://devarticles.in/contact/) to receive **Latest files**\*.
