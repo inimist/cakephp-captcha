@@ -28,7 +28,6 @@ class SignupsController extends AppController {
             /*if(!isset($this->Captcha))	{ //if Component was not loaded throug $components array()
                 $this->Captcha = $this->Components->load('Captcha'); //load it
             }*/
-            debug($this->Captcha->getCode('Signup.security_code'));
             $this->Signup->setCaptcha('security_code', $this->Captcha->getCode('Signup.security_code')); //getting from component and passing to model to make proper validation check
             $this->Signup->set($this->request->data);
             if($this->Signup->validates())	{ //as usual data save call
