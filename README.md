@@ -182,7 +182,13 @@ Download
 
 Contact Me
 --------------------
-* If you have any question or query do [send me a 
+If you have any question or query do [send me a 
 message](http://devarticles.in/contact/).
+
+
+Hire Me
+-----------------------------
 * I like to build Websites in **CakePHP** & **Wordpress**. [Check my 
 availability](http://devarticles.in/contact/) for a hire.
+* oDesk: https://www.odesk.com/users/~01ea3d34e0a88133b3
+* Elance: https://www.elance.com/s/arvindk/
