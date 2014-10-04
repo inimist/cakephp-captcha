@@ -180,9 +180,8 @@ Download
 [Download 
 @Github](https://github.com/inimist/cakephp-captcha/archive/master.zip)
 
-Download
+Contact Me
 --------------------
-
 * If you have any question or query do [send me a 
 message](http://devarticles.in/contact/).
 * I like to build Websites in CakePHP & Wordpress. [Check my 
