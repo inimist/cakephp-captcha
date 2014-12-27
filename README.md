@@ -18,6 +18,11 @@ of rotation
 * Random or Fixed Captcha Themes for Image Captchaa
 * Random Font face
 
+Demo
+--------------------
+http://captcha.inimist.com
+
+
 Installation
 --------------------
 
@@ -165,28 +170,27 @@ Size
 
 What's New
 --------------------
-* Tested upto CakePHP 2.5.4
+* Tested upto CakePHP 2.6.0
 * Multiple Image and Simple Math captcha
 * Default and Random themes for Image Captcha
 * Multiple font files placed in Lib
 * Fully controlled from View file through Helper
 
-Demo
+License
 --------------------
-http://captcha.inimist.com
+Licensed under The MIT License
+Redistributions of files must retain the given copyright notice.
+http://opensource.org/licenses/MIT
 
-Download
+
+Copyright
 --------------------
-[Download 
-@Github](https://github.com/inimist/cakephp-captcha/archive/master.zip)
+Copyright (C) Arvind Kumar, arvind@inimist.com
 
-Contact Me
+
 --------------------
-If you have any question or query do [send me a 
-message](http://devarticles.in/contact/).
-
-
-Hire Me
+--------------------
+Looking for a CakePHP Developer??
 -----------------------------
 * I like to build Websites in **CakePHP** & **Wordpress**. [Check my 
 availability](http://devarticles.in/contact/) for a hire.
