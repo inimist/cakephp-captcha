@@ -188,11 +188,9 @@ Copyright
 Copyright (C) Arvind Kumar, arvind@inimist.com
 
 
---------------------
---------------------
-Looking for a CakePHP Developer??
 -----------------------------
-* I like to build Websites in **CakePHP** & **Wordpress**. [Check my 
-availability](http://devarticles.in/contact/) for a hire.
+Looking for a CakePHP Developer?
+-----------------------------
+* I like to build Websites in **CakePHP** & **Wordpress**. [Contact me](http://devarticles.in/contact/).
 * oDesk: https://www.odesk.com/users/~01ea3d34e0a88133b3
 * Elance: https://www.elance.com/s/arvindk/
