@@ -69,10 +69,10 @@
      * Default monospaced fonts available
      *
      * The font files (.ttf) are stored in app/Lib/Fonts
-     * Thanks to "donovan-duplessis" for the idea!
+     * You can add more fonts to this directory and then to the array below
      * @var array
      */
-    private $__fonts = array('anonymous', 'droidsans', 'ubuntu');
+    private $__fonts = array('monofont', 'sanchez');
 
     /**
      * Used in a mechanism to detect errors
@@ -121,7 +121,6 @@
      * @var array
      */
     public $settings = array(
-      'font'=>'monofont.ttf',
       'width' => 120,
       'height' => 40,
       'length' => 6,

@@ -2,15 +2,15 @@
 /**
  * Captcha Behavior
  *
- * Behavior which handles Captcha verification
+ * Behavior to handles Captcha verification
  *
- * PHP version 5 and CakePHP version 2.5+
+ * PHP version 5+ and CakePHP version 2.6+
  *
  * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
+ * Redistributions of files must retain the copyright notice.
  *
  * @category    Behavior
- * @version     1.0
+ * @version     1.2
  * @author      Arvind Kumar <arvind.mailto@gmail.com>
  * @copyright   Copyright (C) Arvind Kumar
  * @license     MIT License (http://www.opensource.org/licenses/mit-license.php)
@@ -18,101 +18,76 @@
  * Version history
  *
  * 2014-09-08  Initial version
+ * 2014-12-27  Add configuration settings
  *
  */
 App::uses('ModelBehavior', 'Model');
 
 class CaptchaBehavior extends ModelBehavior
 {
-
     /**
-     * Behavior configuration settings
-     *
-     * @var array
-     * @access public
+     * $config - Captcha Behavior configuration
      */
-    public $_config = array();
+    public $config = array();
 
     /**
-     * Initialized Captcha
-     *
-     * @var array
-     * @access public
+     * $captcha - The captcha Array
      */
     public $captcha = array();
 
     /**
-     * Default values to be merged with _config
-     *
-     * @var array
-     * @access private
+     * $params - Parameters, added to $config
      */
-    private $_defaults = array(
+    private $params = array(
         'field' => array('captcha'),
         'error' => 'Incorrect captcha code value'
     );
 
     /**
-     * Core validation rules set on model
-     *
-     * @var array
-     * @access private
+     * $rules - model validation rules
      */
-    private $_rules = array();
+    private $rules = array();
 
     /**
      * Store the captcha text value
-     *
-     * @var string
-     * @access private
      */
     private $_captcha = null;
 
     /**
-     * (non-PHPdoc)
-     * @see ModelBehavior::setup()
+     * setup() - Settings per model
+     * @see (http://book.cakephp.org/2.0/en/models/behaviors.html) for details
      */
     public function setup(Model $model, $config = array()) {
-        if (!isset($this->_config[$model->alias])) {
-            $this->_config[$model->alias] = $this->_defaults;
+        if (!isset($this->config[$model->alias])) {
+            $this->config[$model->alias] = $this->params;
         }
-
-        $this->_config[$model->alias] = array_merge(
-            $this->_config[$model->alias], (array) $config);
-
-        $this->_rules[$model->alias] = $model->validate;
+        $this->config[$model->alias] = array_merge(
+            $this->config[$model->alias], (array) $config);
+        $this->rules[$model->alias] = $model->validate;
     }
 
     /**
-     * (non-PHPdoc)
-     * @see ModelBehavior::beforeValidate()
+     * beforeValidate() - Run just before our model validation sets off
+     * @see (http://book.cakephp.org/2.0/en/models/behaviors.html) for details
      */
     public function beforeValidate(Model $model) {
         $validator = array(
             'rule' => array('validateCaptcha'),
-            'message' => $this->_config[$model->alias]['error']
+            'message' => $this->config[$model->alias]['error']
         );
-
-        $original_fields = $this->_config[$model->alias]['field'];
+        $form_fields = $this->config[$model->alias]['field'];
         $fields = array();
-        $fields = is_array($original_fields) ?
-            $original_fields : array($original_fields);
-
+        $fields = is_array($form_fields) ? $form_fields : array($form_fields);
         $rules = array();
         foreach ($fields as $field) {
             $rules[$field] = $validator;
         }
-
-        $model->validate = array_merge($this->_rules[$model->alias], $rules);
+        $model->validate = array_merge($this->rules[$model->alias], $rules);
     }
 
     /**
-     * Custom validation rule to check captcha value 
+     * Custom rule to validate captcha value
      *
-     * @param object $model The model reference
-     * @param array $check The array containing captcha field value
-     * @access public
-     * @return boolean True if the captcha values match
      */
     public function validateCaptcha(Model $model, $check) {
         $field = key($check);
@@ -120,15 +95,10 @@ class CaptchaBehavior extends ModelBehavior
     }
 
     /**
-     * Store captcha value (from session via controller)
+     * Store captcha value in controller
      *
-     * @param object $model The model reference
-     * @param string $value The captcha value
-     * @access public
-     * @return void
      */
     public function setCaptcha(Model $model, $field, $captcha) {
         $this->captcha[$field] = $captcha;
     }
-
 }
