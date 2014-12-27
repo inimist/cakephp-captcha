@@ -1,8 +1,7 @@
 Cakephp Captcha Component 2.5
 =============================
 
-A CakePHP Component to have Captchas with Model Validation. Tested upto CakePHP 
-2.5.4.
+A CakePHP Component to have Captchas with Model Validation. Tested upto CakePHP 2.6.0
 
 Features
 --------------------
