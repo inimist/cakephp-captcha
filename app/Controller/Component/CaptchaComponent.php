@@ -58,7 +58,8 @@
  *             - Add fully configurable from view file
  *             - Fully configurable from view file
  *             - Add Pass Helper settings directly to Helper from Component. Overwrite with 
-                  custom configurations from view file if found
+                 custom configurations from view file if found
+ * 2015-01-22  - Tested with Cakephp 2.6.0
  *
  */
   App::uses('Component', 'Controller');
