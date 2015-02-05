@@ -70,7 +70,7 @@ class CaptchaBehavior extends ModelBehavior
      * beforeValidate() - Run just before our model validation sets off
      * @see (http://book.cakephp.org/2.0/en/models/behaviors.html) for details
      */
-    public function beforeValidate(Model $model) {
+    public function beforeValidate(Model $model, $options = array()) {
         $validator = array(
             'rule' => array('validateCaptcha'),
             'message' => $this->config[$model->alias]['error']
