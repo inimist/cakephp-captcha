@@ -42,13 +42,16 @@ Follow instructions given below to place code in Controller, Model and View file
 
 ###In Controller
 
-Add in the top definitions, in $components and $helpers in your controller.
+Add in the top definitions, in $uses, $components and $helpers in your controller, as per the CakePHP convensions.
 
     var $components = array('Captcha'=>array('Model'=>'Signup', 
     'field'=>'captcha'));//'Captcha'
 
     var $uses = array('CurrentModel'); //replace "CurrentModel" with your current. The default model in this example is "Signup"
+
     public $helpers = array('Captcha'); // and the default helpers like Form, Session, HTML etc
+
+    //(Thanks to "Vasile Martiniuc" for pointing out the error due to different model than Signup in $uses :))
 
 Note: "*captcha*" is the field name for which we are binding this captcha here 
 in examples. Replace with 
