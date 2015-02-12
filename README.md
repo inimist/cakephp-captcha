@@ -38,14 +38,17 @@ defined near line 125.
 Implementation
 --------------------
 
-Follow instructions given below to place in Controller, Model and View files.
+Follow instructions given below to place code in Controller, Model and View files.
 
 ###In Controller
 
-Add in the top definitions of your controller.
+Add in the top definitions, in $components and $helpers in your controller.
 
     var $components = array('Captcha'=>array('Model'=>'Signup', 
     'field'=>'captcha'));//'Captcha'
+
+    var $uses = array('CurrentModel'); //replace "CurrentModel" with your current. The default model in this example is "Signup"
+    public $helpers = array('Captcha'); // and the default helpers like Form, Session, HTML etc
 
 Note: "*captcha*" is the field name for which we are binding this captcha here 
 in examples. Replace with 
