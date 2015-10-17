@@ -1,7 +1,7 @@
-Cakephp Captcha Component 2.5
+Cakephp Captcha Component 2.7
 =============================
 
-A CakePHP Component to have Captchas with Model Validation. Tested upto CakePHP 2.6.0
+A CakePHP Component to have Captchas with Model Validation. Tested upto CakePHP 2.7.5
 
 Features
 --------------------
@@ -175,7 +175,7 @@ Size
 
 What's New
 --------------------
-* Tested upto CakePHP 2.6.0
+* Tested upto CakePHP 2.7.5
 * Multiple Image and Simple Math captcha
 * Default and Random themes for Image Captcha
 * Multiple font files placed in Lib
@@ -197,5 +197,4 @@ Copyright (C) Arvind Kumar, arvind@inimist.com
 Looking for a CakePHP Developer?
 -----------------------------
 * I like to build Websites in **CakePHP** & **Wordpress**. [Contact me](http://devarticles.in/contact/).
-* oDesk: https://www.odesk.com/users/~01ea3d34e0a88133b3
-* Elance: https://www.elance.com/s/arvindk/
+* Upwork: https://www.upwork.com/freelancers/~01ea3d34e0a88133b3
