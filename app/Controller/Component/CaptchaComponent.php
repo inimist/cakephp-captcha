@@ -73,7 +73,7 @@
      * You can add more fonts to this directory and then to the array below
      * @var array
      */
-    private $__fonts = array('monofont', 'sanchez');
+    private $__fonts = array('anonymous', 'droidsans', 'ubuntu');
 
     /**
      * Used in a mechanism to detect errors
