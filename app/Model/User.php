@@ -11,7 +11,7 @@ class User extends AppModel {
     var $useTable = false; //i dont have a table right now, just testing captcha
 
     public $actsAs = array(
-        'Captcha' => array(
+        'Captcha.Captcha' => array(
             'field' => array('ssecurity'),
             'error' => 'Incorrect captcha code value'
         )

@@ -10,14 +10,14 @@ class SignupsController extends AppController {
 
 	var $name = 'Signups';
 	var $uses = array('Signup');
-	var $helpers = array('Html', 'Form', 'Captcha');
-	var $components = array('Captcha'=>array('field'=>'security_code'));//'Captcha'
+	//var $helpers = array('Captcha.Captcha');
+	var $components = array('Captcha.Captcha'=>array('field'=>'security_code'));//'Captcha'
 
     function captcha()	{
         $this->autoRender = false;
         $this->layout='ajax';
         if(!isset($this->Captcha))	{ //if you didn't load in the header
-            $this->Captcha = $this->Components->load('Captcha'); //load it
+            $this->Captcha = $this->Components->load('Captcha.Captcha'); //load it
         }
         $this->Captcha->create();
     }

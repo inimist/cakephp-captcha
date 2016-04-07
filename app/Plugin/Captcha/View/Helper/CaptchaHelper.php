@@ -1,4 +1,5 @@
 <?php
+App::uses('AppHelper', 'View/Helper');
 /**
  * Helper for Showing the use of Captcha*
  * @author     Arvind Kumar

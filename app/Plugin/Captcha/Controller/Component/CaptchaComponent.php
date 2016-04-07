@@ -189,7 +189,7 @@
      * @param ($instance of Controller) 
      */
     public function beforeRender(Controller $controller) {
-        $controller->helpers['Captcha'] = array_merge($this->__getSettings(), array('controller'=>$this->Controller->params['controller'], 'action'=>'captcha'));
+        $controller->helpers['Captcha.Captcha'] = array_merge($this->__getSettings(), array('controller'=>$this->Controller->params['controller'], 'action'=>'captcha'));
         //$this->Controller->set('captchaSettings', array_merge($this->__getSettings(), array('controller'=>$this->Controller->params['controller'], 'action'=>'captcha')));
         //debug($this->settings);
     }
