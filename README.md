@@ -1,4 +1,4 @@
-Cakephp Captcha Support 2.7
+Cakephp Captcha Support Plugin 2.7
 =============================
 
 A CakePHP Captchas support with automatic Model Validation. Tested upto CakePHP 2.7.5. 
@@ -30,11 +30,10 @@ Installation
 Place all files bundled in this package in corresponding folders. Then follow 
 instructions given below.
 
-Configuration
+Configuration (optional)
 --------------------
 
-Open the Controller/Component/CaptchaComponent.php file and make necessary 
-changes in the $settings variable 
+Open app/Plugin/Captcha/Controller/Component/CaptchaComponent.php file and make necessary changes in the $settings variable 
 defined near line 125.
 
 Implementation
@@ -46,12 +45,12 @@ Follow instructions given below to place code in Controller, Model and View file
 
 Add in the top definitions, in $uses, $components and $helpers in your controller, as per the CakePHP convensions.
 
-    var $components = array('Captcha'=>array('Model'=>'Signup', 
-    'field'=>'captcha'));//'Captcha'
+    var $components = array('Captcha.Captcha'=>array('Model'=>'Signup', 
+    'field'=>'captcha'));//'Captcha.Captcha'
 
     var $uses = array('CurrentModel'); //replace "CurrentModel" with your current. The default model in this example is "Signup"
 
-    public $helpers = array('Captcha'); // and the default helpers like Form, Session, HTML etc
+    public $helpers = array('Captcha.Captcha'); // and the default helpers like Form, Session, HTML etc
 
     //(Thanks to "Vasile Martiniuc" for pointing out the error due to different model than Signup in $uses :))
 
@@ -93,7 +92,7 @@ line (line 3 here) is the one which is related to the captcha component.
 Add CaptchaBehaviour in the Model definitions, as following:
 
     public $actsAs = array(
-        'Captcha' => array(
+        'Captcha.Captcha' => array(
             'field' => array('captcha'),
             'error' => 'Incorrect captcha code value'
         )
