@@ -1,7 +1,9 @@
-Cakephp Captcha Component 2.7
+Cakephp Captcha Support 2.7
 =============================
 
-A CakePHP Component to have Captchas with Model Validation. Tested upto CakePHP 2.7.5
+A CakePHP Captchas support with automatic Model Validation. Tested upto CakePHP 2.7.5. 
+
+[CakePHP 3.x version is here](https://github.com/inimist/cakephp-captcha-3).
 
 Features
 --------------------
