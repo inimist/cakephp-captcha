@@ -161,10 +161,10 @@ echo $this->Form->end();
 
 <?php
 echo $this->Session->flash();
-echo $this->Form->create("Signups");
+echo $this->Form->create("Signups", array('url'=>'#basic'));
 
 ?>
-<fieldset style="border: 1px solid #B3B3B3;"><legend style="padding:0 10px;">Basic Theme</legend>
+<fieldset style="border: 1px solid #B3B3B3;"><a name="basic"></a><legend style="padding:0 10px;">Basic Theme</legend>
 
 <p>Width: 150, Height: 50, Theme: Basic</p>
 
@@ -182,11 +182,11 @@ echo $this->Form->end();
 //First form ends
 
 //second form starts
-echo $this->Form->create("Users");
+echo $this->Form->create("Users", array('url'=>'#random'));
 
 
 ?>
-<fieldset style="border: 1px solid #B3B3B3;"><legend style="padding:0 10px;">Random Theme</legend>
+<fieldset style="border: 1px solid #B3B3B3;"><a name="random"></a><legend style="padding:0 10px;">Random Theme</legend>
 
 <p>Width: 250, Height: 90, Theme: Random</p>
 
@@ -204,10 +204,10 @@ echo '</fieldset>';
 echo $this->Form->end();
 
 
-echo $this->Form->create("Contacts");
+echo $this->Form->create("Contacts", array('url'=>'#math'));
 
 ?>
-<fieldset style="border: 1px solid #B3B3B3;"><legend style="padding:0 10px;">Math Captcha</legend>
+<fieldset style="border: 1px solid #B3B3B3;"><a name="math"></a><legend style="padding:0 10px;">Math Captcha</legend>
 <?php
 $custom3['model']='Contact';
 $custom3['field']='math_question';
