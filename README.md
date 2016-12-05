@@ -1,7 +1,7 @@
 Cakephp Captcha Support Plugin 2.7
 =============================
 
-A CakePHP Captchas support with automatic Model Validation. Tested upto CakePHP 2.7.5. 
+A CakePHP Captchas support with automatic Model Validation. Tested upto CakePHP 2.9.3. 
 
 [CakePHP 3.x version is here](https://github.com/inimist/cakephp-captcha-3).
 
@@ -176,7 +176,7 @@ Size
 
 What's New
 --------------------
-* Tested upto CakePHP 2.7.5
+* Tested upto CakePHP 2.9.3
 * Multiple Image and Simple Math captcha
 * Default and Random themes for Image Captcha
 * Multiple font files placed in Lib
