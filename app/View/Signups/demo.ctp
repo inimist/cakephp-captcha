@@ -121,7 +121,7 @@ margin-bottom: 20px;">
 
 <h1 style="font-size:22px;margin:5px 0 20px;background:transparent">CakePHP Captcha component for CakePHP Version 2.x (Demo)</h1>
 
-<p>Here is the latest CakePHP Captcha Support for CakePHP Version 2.5+. Tested up to CakePHP version 2.5.3.</p>
+<p>Here is the latest CakePHP Captcha Support for CakePHP Version 2.9+. Tested up to CakePHP version 2.9.3.</p>
 
 <p><b>DEMO</b></p>
 
