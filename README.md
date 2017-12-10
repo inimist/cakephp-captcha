@@ -1,4 +1,4 @@
-[CakePHP 3.x version is here](https://github.com/inimist/cakephp3-captcha/)
+[CakePHP 3.x captcha plugin is here](https://github.com/inimist/cakephp3-captcha/)
 
 Cakephp Captcha Support Plugin 2.7
 =============================
