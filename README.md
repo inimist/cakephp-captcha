@@ -1,8 +1,4 @@
-[CakePHP 3.x captcha plugin is here](https://github.com/inimist/cakephp3-captcha/)
-
-## Depricated!!
-
-##### This Captcha support is Depricated and no more supported. Got to new [CakePHP 3.x captcha plugin](https://github.com/inimist/cakephp3-captcha/)
+## DEPRICATED!! See new [CakePHP 3 Captcha Plugin](https://github.com/inimist/cakephp3-captcha/)
 
 ~~Cakephp Captcha Support Plugin 2.7~~
 =============================
