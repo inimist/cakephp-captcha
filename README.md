@@ -4,7 +4,7 @@
 
 ##### This Captcha support is Depricated and no more supported. Got to new [CakePHP 3.x captcha plugin](https://github.com/inimist/cakephp3-captcha/)
 
-Cakephp Captcha Support Plugin 2.7
+~~Cakephp Captcha Support Plugin 2.7 ~~
 =============================
 
 A CakePHP Captchas support with automatic Model Validation. Tested upto CakePHP 2.9.3.
