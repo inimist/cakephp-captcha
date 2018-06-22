@@ -21,7 +21,7 @@ of rotation
 
 Demo
 --------------------
-http://captcha.inimist.com
+https://captcha.inimisttech.com
 
 
 Installation
