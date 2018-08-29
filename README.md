@@ -1,7 +1,10 @@
+
+Cakephp Captcha 1 & 2
+=============================
+
 ### [CakePHP 3 Version is here](https://github.com/inimist/cakephp3-captcha/)
 
-Cakephp Captcha Support Plugin 2.7
-=============================
+### [Demo](https://captcha.inimisttech.com)
 
 A CakePHP Captchas support with automatic Model Validation. Tested upto CakePHP 2.9.3.
 
@@ -18,10 +21,6 @@ of rotation
 * Works without GD Truetype font support
 * Random or Fixed Captcha Themes for Image Captchaa
 * Random Font face
-
-Demo
---------------------
-https://captcha.inimisttech.com
 
 
 Installation
